@@ -35,5 +35,5 @@ def search_recipes(query):
 
 
 if __name__ == '__main__':
-    recipes = search_recipes('arroz, pollo')
+    recipes = search_recipes('rice, chicken')
     sleep(10000)
