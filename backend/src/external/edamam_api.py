@@ -4,7 +4,7 @@ from asyncio import sleep
 import requests
 from dotenv import load_dotenv
 
-from backend.src.models.recipe import Recipe
+from src.models.recipe import Recipe
 
 load_dotenv()
 EDAMAM_APP_ID = os.getenv('EDAMAM_APP_ID')
