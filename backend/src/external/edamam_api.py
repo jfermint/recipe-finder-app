@@ -1,5 +1,4 @@
 import os
-from asyncio import sleep
 
 import requests
 from dotenv import load_dotenv
@@ -17,7 +16,8 @@ def search_recipes(query):
         "q": query,
         "app_id": EDAMAM_APP_ID,
         "app_key": EDAMAM_APP_KEY,
-        "to": 3,
+        "to": 50,
+        "random": True
     }
 
     try:
@@ -34,6 +34,5 @@ def search_recipes(query):
         return []
 
 
-if __name__ == '__main__':
-    recipes = search_recipes('rice, chicken')
-    sleep(10000)
+# if __name__ == '__main__':
+#     recipes = search_recipes('rice, chicken')

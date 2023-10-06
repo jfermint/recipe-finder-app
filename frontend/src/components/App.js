@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
 import '../styles/App.css';
 import SearchForm from './SearchForm';
-import RecipeList from './RecipeList';
+import RecipeGrid from './RecipeGrid';
+import RecipeDetail from "./RecipeDetail";
 
 
 function App() {
@@ -29,14 +32,33 @@ function App() {
 
     const handleSearch = async () => {
         await fetchRecipes();
+        setQuery('');
     };
 
+    const searchFormProps = {
+        query: query,
+        setQuery: setQuery,
+        handleSearch: handleSearch
+    }
+
+    const recipeProps = {
+        recipes: recipes
+    }
+
     return (
-        <div className="App">
-            <h1>Recipe Finder</h1>
-            <SearchForm query={query} setQuery={setQuery} handleSearch={handleSearch} />
-            <RecipeList recipes={recipes} />
-        </div>
+        <Router>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <SearchForm {...searchFormProps} />
+                            <RecipeGrid {...recipeProps} />
+                        </>
+                    } />
+                    <Route path="/recipe/:id" element={<RecipeDetail {...recipeProps}/>}  />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 

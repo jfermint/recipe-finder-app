@@ -1,7 +1,6 @@
 import React from 'react';
 
-function SearchForm(props) {
-    const {query, setQuery, handleSearch} = props
+function SearchForm({query, setQuery, handleSearch}) {
 
     const handleInputChange = (e) => {
         setQuery(e.target.value);
@@ -11,16 +10,23 @@ function SearchForm(props) {
         handleSearch();
     }
     return (
-        <form className="search-form" onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="query"
-                placeholder="Enter ingredients (separated by commas)"
-                value={query}
-                onChange={handleInputChange}
-            />
-            <button type="submit">Search</button>
-        </form>
+        <div className="header">
+            <h1 className="title">
+                Recipe Finder
+            </h1>
+            <form className="search-form" onSubmit={handleSubmit}>
+                <div className="search-text">
+                    <input
+                        type="text"
+                        name="query"
+                        placeholder="Search for Recipes"
+                        value={query}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <button className="search-button" type="submit">Search</button>
+            </form>
+        </div>
     );
 }
 
