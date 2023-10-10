@@ -21,9 +21,9 @@ function RecipeDetail({recipes}) {
                 <div className="recipe-detail-card">
                     <h2>{recipe.title}</h2>
                     <img src={recipe.image_url} alt={recipe.title} />
-                    <div className="ingredient-list">
-                        <h4>Ingredients:</h4>
-                        <ul className="ingredients">
+                    <div className="ingredients-wrap">
+                        <h3>Ingredients:</h3>
+                        <ul className="ingredients-list">
                             {recipe.ingredients.map((ingredient, index) => (
                                 <li key={index}>{ingredient}</li>
                             ))}

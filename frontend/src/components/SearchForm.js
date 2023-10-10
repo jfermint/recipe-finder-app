@@ -5,9 +5,18 @@ function SearchForm({query, setQuery, handleSearch}) {
     const handleInputChange = (e) => {
         setQuery(e.target.value);
     }
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'auto'
+        });
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         handleSearch();
+        scrollToTop();
     }
     return (
         <div className="header">
