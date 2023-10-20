@@ -8,14 +8,16 @@ create and activate a virtual environment called `venv`
 and load the dependencies needed for these scripts
 
 ```bash
+cd backend
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python3 app.py
 ```
 
 ## How to run
-To run the app, copy the following command in the venv terminal:
+To run the app, copy the following commands in the venv terminal:
 ```bash
-python3 app.py
+export FLASK_NAME=app.py
+export FLASK_ENV=development
+flask run
 ```
