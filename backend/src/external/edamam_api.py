@@ -6,16 +6,14 @@ from dotenv import load_dotenv
 from src.models.recipe import Recipe
 
 load_dotenv()
-EDAMAM_APP_ID = os.getenv('EDAMAM_APP_ID')
-EDAMAM_APP_KEY = os.getenv('EDAMAM_APP_KEY')
 
 
 def search_recipes(query):
     base_url = "https://api.edamam.com/search"
     params = {
         "q": query,
-        "app_id": EDAMAM_APP_ID,
-        "app_key": EDAMAM_APP_KEY,
+        "app_id": os.getenv('EDAMAM_APP_ID'),
+        "app_key": os.getenv('EDAMAM_APP_KEY'),
         "to": 50,
         "random": True
     }
