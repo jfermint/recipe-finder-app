@@ -1,10 +1,9 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+from flask_cors import cross_origin
 
 from src.external.edamam_api import search_recipes
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/search": {"origins": "http://localhost:3000"}})
 
 
 @app.route('/search', methods=['GET'])
