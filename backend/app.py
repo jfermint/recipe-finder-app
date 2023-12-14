@@ -13,9 +13,9 @@ def recipe_search_by_ingredients():
     if query:
         recipes = search_recipes(query)
         formatted_recipes = [recipe.to_dict() for recipe in recipes]
-        return jsonify(formatted_recipes)
+        return formatted_recipes
     else:
-        return jsonify({"ERROR": "No query parameter provided."})
+        return {"ERROR": "No query parameter provided."}
 
 
 if __name__ == '__main__':
